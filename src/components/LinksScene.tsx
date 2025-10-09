@@ -5,13 +5,13 @@ import { Environment } from "@react-three/drei";
 
 export default function LinksScene() {
   const links = [
-    { label: "CYC STUDIO", url: "https://cyc-studio.vercel.app" },
-    { label: "MindBay", url: "https://mindbay.vercel.app" },
-    { label: "Contact", url: "https://chu-yu-cheng.vercel.app" },
+    { label: "CYC STUDIO", url: "https://cyc-studio.vercel.app/" },
+    { label: "MindBay", url: "https://mindbay.vercel.app/" },
+    { label: "Huye WebAR", url: "https://webar-huye-next.vercel.app/" },
   ];
 
   return (
-    <div className="w-full h-[80vh] bg-black relative">
+    <div className="w-full h-[60vh] bg-black relative">
       <Canvas
         shadows
         camera={{ position: [0, 0, 8], fov: 45 }}
