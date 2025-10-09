@@ -3,6 +3,7 @@ import { OrientationProvider } from "@/hooks/useOrientation";
 import OrientationModel from "@/components/OrientationModel";
 import LinksScene from "@/components/LinksScene";
 import { Canvas } from "@react-three/fiber";
+import BaseButton from "@/components/BaseButton";
 
 export default function Home() {
   const [status, setStatus] = useState<"idle" | "granted" | "denied">("idle");
@@ -31,15 +32,10 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full h-[100dvh] bg-black text-white overflow-x-hidden flex items-center justify-center">
+    <div className="w-full h-[100dvh] overflow-x-hidden flex items-center justify-center">
       {status === "idle" && (
         // 還沒允許時顯示按鈕
-        <button
-          onClick={handlePermission}
-          className="px-6 py-3 bg-black border border-white text-white rounded-lg text-lg"
-        >
-          啟用感測器
-        </button>
+        <BaseButton onClick={handlePermission}>啟用感測器</BaseButton>
       )}
 
       {status === "denied" && (
@@ -53,7 +49,7 @@ export default function Home() {
       {status === "granted" && (
         // 允許後再渲染主體
         <OrientationProvider>
-          <div className="w-full h-[100dvh] bg-black text-white overflow-x-hidden">
+          <div className="w-full h-[100dvh] overflow-x-hidden">
             {/* Hero 區塊 */}
             <section className="relative w-full h-[70vh] md:h-screen flex items-center justify-center">
               <Canvas
@@ -75,26 +71,17 @@ export default function Home() {
             </section>
 
             {/* 2D Link 區塊 */}
-            {/* <section id="links" className="py-16 px-4 md:px-24 flex-1">
+            {/* <section id="links" className="py-16 px-4 md:px-24">
               <div className="max-w-lg mx-auto space-y-6">
-                <a
-                  href="https://cyc-studio.vercel.app/"
-                  className="block w-full text-center py-4 bg-white text-black rounded-lg hover:bg-gray-200 transition"
-                >
-                  CYC STUDIO
-                </a>
-                <a
-                  href="https://mindbay.vercel.app/"
-                  className="block w-full text-center py-4 bg-white text-black rounded-lg hover:bg-gray-200 transition"
-                >
-                  MindBay
-                </a>
-                <a
-                  href="https://webar-huye-next.vercel.app/"
-                  className="block w-full text-center py-4 bg-white text-black rounded-lg hover:bg-gray-200 transition"
-                >
-                  Huye WebAR
-                </a>
+                <BaseButton className="w-full">
+                  <a href="https://cyc-studio.vercel.app/">CYC STUDIO</a>
+                </BaseButton>
+                <BaseButton className="w-full">
+                  <a href="https://mindbay.vercel.app/">MindBay</a>
+                </BaseButton>
+                <BaseButton className="w-full">
+                  <a href="https://webar-huye-next.vercel.app/">Huye WebAR</a>
+                </BaseButton>
               </div>
             </section> */}
 
@@ -109,7 +96,7 @@ export default function Home() {
                 href="https://www.instagram.com/chu_yuchen"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-white"
+                className="underline"
               >
                 @chu_yuchen
               </a>

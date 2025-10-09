@@ -13,7 +13,7 @@ const BaseButton: React.FC<IBaseButtonProps> = ({
 }) => {
   return (
     <button
-      className={`p-3 text-white font-bold text-xl bg-primaryColorLogoOrange rounded-full ${className}`}
+      className={`px-6 py-3 border font-bold text-xl rounded-lg ${className}`}
       onClick={onClick}
     >
       {label || children}

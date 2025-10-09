@@ -11,7 +11,7 @@ export default function LinksScene() {
   ];
 
   return (
-    <div className="w-full h-[60vh] bg-black relative">
+    <div className="w-full h-[75vh] relative">
       <Canvas
         shadows
         camera={{ position: [0, 0, 8], fov: 45 }}
