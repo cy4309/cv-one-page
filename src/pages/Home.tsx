@@ -214,7 +214,8 @@ import LinksScene from "@/components/LinksScene";
 import { Canvas } from "@react-three/fiber";
 
 export default function Home() {
-  const [enabled, setEnabled] = useState(false);
+  // const [enabled, setEnabled] = useState(false);
+  const [status, setStatus] = useState<"idle" | "granted" | "denied">("idle");
 
   const handlePermission = async () => {
     if (
@@ -225,19 +226,23 @@ export default function Home() {
       try {
         // @ts-ignore
         const response = await DeviceOrientationEvent.requestPermission();
-        if (response === "granted") setEnabled(true);
+        if (response === "granted") {
+          setStatus("granted");
+        } else {
+          setStatus("denied");
+        }
       } catch (e) {
-        console.error("Permission denied:", e);
+        setStatus("denied");
       }
     } else {
       // Android 或支援自動授權的瀏覽器
-      setEnabled(true);
+      setStatus("granted");
     }
   };
 
   return (
     <div className="w-full h-[100dvh] bg-black text-white overflow-x-hidden flex items-center justify-center">
-      {!enabled ? (
+      {status === "idle" && (
         // 還沒允許時顯示按鈕
         <button
           onClick={handlePermission}
@@ -245,7 +250,23 @@ export default function Home() {
         >
           啟用感測器
         </button>
-      ) : (
+      )}
+
+      {status === "denied" && (
+        <div className="text-center space-y-4">
+          <p className="text-red-400 text-sm">
+            你已拒絕感測器權限，請到瀏覽器設定允許。
+          </p>
+          <button
+            onClick={handlePermission}
+            className="px-6 py-3 bg-gray-800 border border-white rounded-lg"
+          >
+            再次嘗試
+          </button>
+        </div>
+      )}
+
+      {status === "granted" && (
         // 允許後再渲染主體
         <OrientationProvider>
           <div className="w-full h-[100dvh] bg-black text-white overflow-x-hidden">
@@ -256,7 +277,7 @@ export default function Home() {
                 className="absolute inset-0"
               >
                 <ambientLight intensity={0.5} />
-                <directionalLight position={[5, 5, 5]} intensity={1.2} />
+                <directionalLight position={[5, 5, 5]} intensity={2} />
                 <OrientationModel />
               </Canvas>
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center">

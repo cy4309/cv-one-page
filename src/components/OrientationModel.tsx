@@ -7,7 +7,7 @@ import { useOrientation } from "@/hooks/useOrientation";
 
 export default function OrientationModel() {
   const groupRef = useRef<THREE.Group>(null);
-  const { scene } = useGLTF("/models/model-me-pbr.glb");
+  const { scene } = useGLTF("/models/cyc_wireframe_white_spaced.glb");
   const { alpha, beta, gamma } = useOrientation();
   // const [rotation, setRotation] = useState({ alpha: 0, beta: 0, gamma: 0 });
 
@@ -42,8 +42,9 @@ export default function OrientationModel() {
   });
 
   return (
-    <group ref={groupRef} scale={3.6}>
-      <primitive object={scene} rotation={[0, -Math.PI / 2, 1]} />
+    <group ref={groupRef} scale={1.6}>
+      {/* <primitive object={scene} rotation={[0, -Math.PI / 2, 1]} /> */}
+      <primitive object={scene} rotation={[0, 0, 0]} />
     </group>
   );
 }
