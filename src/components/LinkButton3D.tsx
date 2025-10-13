@@ -26,6 +26,8 @@ export function LinkButton3D({ label, url, position, fadeInDelay = 0 }: Props) {
       onPointerDown={() => setActive(true)}
       onPointerUp={() => setActive(false)}
       onPointerCancel={() => setActive(false)}
+      onPointerOver={() => (document.body.style.cursor = "pointer")}
+      onPointerOut={() => (document.body.style.cursor = "auto")}
     >
       {/* 厚實的玻璃塊 */}
       <RoundedBox args={[3, 1, 0.5]} radius={0.25} smoothness={4} castShadow>
