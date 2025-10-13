@@ -62,10 +62,16 @@ export default function Home() {
               </Canvas>
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
                 <h1 className="text-3xl md:text-5xl font-bold">
-                  Hello, I’m chu_yuchen
+                  {/* Hello, I’m chu_yuchen */}
+                  CYC STUDIO
                 </h1>
-                <p className="mt-4 text-lg md:text-xl text-white/80">
-                  Frontend Engineer · Interactive Designer
+                <p className="mt-4 max-w-[300px] flex flex-wrap justify-center items-center text-lg md:text-xl text-white/80">
+                  {/* Frontend Engineer · Interactive Designer */}
+                  Interactive cultural creations at the crossroads of art and
+                  technology
+                  <span className="w-full text-base">
+                    — Free for everyone to discover —
+                  </span>
                 </p>
               </div>
             </section>
