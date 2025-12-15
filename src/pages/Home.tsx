@@ -63,7 +63,7 @@ export default function Home() {
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
                 <h1 className="text-3xl md:text-5xl font-bold">
                   {/* Hello, I’m chu_yuchen */}
-                  CYC STUDIO
+                  CYC ZINE
                 </h1>
                 <p className="mt-4 max-w-[300px] flex flex-wrap justify-center items-center text-lg md:text-xl text-white/80">
                   {/* Frontend Engineer · Interactive Designer */}
@@ -80,7 +80,7 @@ export default function Home() {
             {/* <section id="links" className="py-16 px-4 md:px-24">
               <div className="max-w-lg mx-auto space-y-6">
                 <BaseButton className="w-full">
-                  <a href="https://cyc-studio.vercel.app/">CYC STUDIO</a>
+                  <a href="https://cyc-zine.vercel.app/">CYC ZINE</a>
                 </BaseButton>
                 <BaseButton className="w-full">
                   <a href="https://mindbay.vercel.app/">MindBay</a>

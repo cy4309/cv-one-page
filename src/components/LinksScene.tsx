@@ -5,7 +5,7 @@ import { Environment } from "@react-three/drei";
 
 export default function LinksScene() {
   const links = [
-    { label: "CYC STUDIO", url: "https://cyc-studio.vercel.app/" },
+    { label: "CYC ZINE", url: "https://cyc-zine.vercel.app/" },
     { label: "MindBay", url: "https://mindbay.vercel.app/" },
     { label: "Huye WebAR", url: "https://webar-huye-next.vercel.app/" },
   ];
